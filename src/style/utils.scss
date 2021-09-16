@@ -4,3 +4,11 @@ $color-background: #1E1E33;
 $color-lightgrey: #EBEBEB;
 $color-light: #FFF;
 $color-loading: linear-gradient(#00B6FA, #59388D);
+
+@mixin button {
+    background-color: $color-lightgrey;
+    padding: 0.5rem 1rem 0.5rem;
+    width: 8rem;
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+}

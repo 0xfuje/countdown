@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CounterForm from './CounterForm';
+import './style/Counter.scss'
 
 class Counter extends Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class Counter extends Component {
     componentDidMount() {
         const startDate = new Date().getTime() + 60*60*1000;
         console.log(startDate);
-        const startIntervalID = setInterval(() => this.tick(startDate), 1000);
+        const startIntervalID = setInterval(() => this.tick(startDate), 900);
         this.setState({ startIntervalID: startIntervalID });
     }
     componentWillUnmount() {
@@ -48,7 +49,7 @@ class Counter extends Component {
         const hourToMS = h * 60 * 60 * 1000;
         const minToMS = min * 60 * 1000;
         const totalMS = currentMS + (hourToMS + minToMS);
-        const startInterval = setInterval(() => this.tick(totalMS), 1000);
+        const startInterval = setInterval(() => this.tick(totalMS), 900);
         this.setState({ startIntervalID: startInterval, isClockRunning: true })
     }
     pauseCountdown() {
@@ -63,10 +64,11 @@ class Counter extends Component {
         const minToMS = min * 60 * 1000;
         const secToMS = sec * 1000;
         const totalMS = currentMS + (hourToMS + minToMS + secToMS);
-        const startInterval = setInterval(() => this.tick(totalMS), 1000);
+        const startInterval = setInterval(() => this.tick(totalMS), 900);
         this.setState({ startIntervalID: startInterval, isClockRunning: true })
     }
     render() {
+        {window.document.title = this.state.timeLeft;}
         return (
             <div className='Counter'>
                 <CounterForm 
@@ -76,7 +78,10 @@ class Counter extends Component {
                     isClockRunning={this.state.isClockRunning}
                     timeLeft={this.state.timeLeft}
                 />
-                <h1>{this.state.timeLeft}</h1>
+                <div className="Counter-Time">
+                    <h1 className='Counter-Time-Title'>{this.state.timeLeft}</h1>
+                </div>
+                
             </div>
         )
     }

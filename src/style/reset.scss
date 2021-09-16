@@ -30,6 +30,11 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
+/* Get rid of input outlines */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
 /* Set core body defaults */
 body {
   min-height: 100vh;

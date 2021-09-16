@@ -1,0 +1,37 @@
+@import './utils.scss';
+.CounterForm {
+    display: flex;
+    &-inputs {
+        background-color: $color-light;
+        color: $color-background;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+    }
+    
+    &-input {
+        font-size: 2rem;
+        background-color: $color-lightgrey;
+        border: 1px solid $color-light;
+        padding: 0.5rem;
+        height: 4rem;
+        width: 5rem;
+        text-align: end;
+        border-radius: 0.25rem;
+        &:focus-visible {
+            border: 1px solid $color-light;
+        }
+    }
+    &-buttons {
+        margin-left: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    &-button {
+        @include button;
+    }
+    &-separator {
+        font-size: 2rem;
+        margin: 0 0.5rem 0 0.5rem;
+    }
+}

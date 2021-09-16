@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './style/CounterForm.scss';
 
 class CounterForm extends Component {
     constructor(props) {
@@ -43,14 +44,19 @@ class CounterForm extends Component {
         console.log(this.props.isClockRunning);
         return (
             <form className='CounterForm'>
-                <input name='hours' onChange={this.handleChange} className='CounterForm-hour' type="number" />
-                : 
-                <input name='minutes' onChange={this.handleChange} className='CounterForm-minute' type="number" />
-                <button onClick={this.handleStart}>Start</button>
-                {( this.props.isClockRunning
-                    ? <button onClick={this.handlePause}>Pause</button>
-                    : <button onClick={this.handleResume}>Resume</button>
-                      )}
+                <div className="CounterForm-inputs">
+                    <input name='hours' min='0' max='9' onChange={this.handleChange} className='CounterForm-hour CounterForm-input' type="number" />
+                    <span className="CounterForm-separator">:</span>
+                    <input name='minutes' min='0' max='60' onChange={this.handleChange} className='CounterForm-minute CounterForm-input' type="number" />
+                </div>
+                <div className="CounterForm-buttons">
+                    <button className='CounterForm-button' onClick={this.handleStart}>Start</button>
+                    {( this.props.isClockRunning
+                    ? <button className='CounterForm-button' onClick={this.handlePause}>Pause</button>
+                    : <button className='CounterForm-button' onClick={this.handleResume}>Resume</button>
+                    )}
+                </div>
+                
             </form>
         )
     }
